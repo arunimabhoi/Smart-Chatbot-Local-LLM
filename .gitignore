@@ -1,0 +1,17 @@
+# Python virtual environment (recreate with: pip install -r requirements.txt)
+venv/
+.venv/
+
+# Python cache files
+__pycache__/
+*.pyc
+
+# Uploaded documents (may be personal) - keep the empty folder only
+uploads/*
+!uploads/.gitkeep
+
+# Saved vector indexes, secrets, editor settings
+rag_faiss_index/
+.env
+.vscode/
+.ipynb_checkpoints/

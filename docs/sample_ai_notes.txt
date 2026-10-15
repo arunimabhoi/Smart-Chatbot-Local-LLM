@@ -1,0 +1,17 @@
+AI Concepts - Study Notes (sample file for testing the Smart Chatbot)
+
+Machine Learning is a subset of Artificial Intelligence that enables systems to learn and improve from experience without being explicitly programmed. The main types of machine learning are Supervised Learning (learns from labeled data), Unsupervised Learning (finds patterns in unlabeled data), and Reinforcement Learning (learns through trial and error using rewards and penalties).
+
+Deep Learning is a specialized branch of Machine Learning that uses neural networks with many layers to model complex patterns in data. It has transformed computer vision, speech recognition, and natural language processing. Popular frameworks include TensorFlow, PyTorch, and Keras. Deep Learning needs large amounts of data and significant computing power, usually GPUs.
+
+Large Language Models (LLMs) are AI models trained on massive text datasets to understand and generate human-like text. Examples include GPT-4, Claude, Gemini, LLaMA, Qwen and Gemma. They can summarise, translate, answer questions and write code without task-specific training, which is called zero-shot learning.
+
+RAG (Retrieval-Augmented Generation) combines a retrieval system with a language model. RAG first retrieves relevant chunks from an external knowledge base, then gives them to the model as context. This reduces hallucinations and lets the model answer questions about private or recent data.
+
+Vector Databases store and search embeddings. Popular options include FAISS (by Meta), Pinecone, Weaviate, Chroma and Qdrant. They use algorithms like HNSW and IVF for fast approximate nearest-neighbour search.
+
+Embeddings are numerical vectors that capture the meaning of text. Similar ideas have vectors that are close together. The nomic-embed-text model available in Ollama produces 768-dimensional vectors.
+
+Prompt Engineering techniques include Zero-Shot prompting, Few-Shot prompting (giving examples), Chain-of-Thought (asking the model to reason step by step), Role prompting and ReAct (reasoning plus actions).
+
+AI Agents use an LLM as a reasoning engine to decide which tools to call, such as web search, calculators or APIs, in order to reach a goal. Frameworks include LangGraph, AutoGen and CrewAI.

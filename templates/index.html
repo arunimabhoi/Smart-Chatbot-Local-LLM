@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Smart Chatbot</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="app">
+
+  <!-- ===================== SIDEBAR ===================== -->
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <div class="logo">SC</div>
+      <div>
+        <div class="brand-name">Smart Chatbot</div>
+        <div class="brand-sub">100% local · Ollama</div>
+      </div>
+    </div>
+
+    <div class="status" id="status">
+      <span class="dot" id="statusDot"></span>
+      <span id="statusText">Checking Ollama…</span>
+    </div>
+    <div class="models">
+      <div><span>Chat</span><code>{{ chat_model }}</code></div>
+      <div><span>Embeddings</span><code>{{ embed_model }}</code></div>
+    </div>
+
+    <h3>Documents</h3>
+    <label class="dropzone" id="dropzone">
+      <input type="file" id="fileInput" multiple accept="{{ allowed }}">
+      <strong>Drop files here</strong>
+      <span>or click to browse<br>{{ allowed }} · up to {{ max_mb }} MB</span>
+    </label>
+    <div class="upload-msg" id="uploadMsg"></div>
+    <ul class="file-list" id="fileList"></ul>
+
+    <div class="side-actions">
+      <button class="ghost" id="newChat">New chat</button>
+      <button class="ghost danger" id="clearAll">Clear documents</button>
+    </div>
+  </aside>
+
+  <!-- ===================== CHAT ===================== -->
+  <main class="main">
+    <header class="topbar">
+      <button class="menu" id="menuBtn" aria-label="Toggle sidebar">☰</button>
+      <div class="mode-title" id="modeTitle">Chat</div>
+      <div class="mode-hint" id="modeHint"></div>
+    </header>
+
+    <section class="messages" id="messages">
+      <div class="welcome" id="welcome">
+        <h1>Hi! What would you like to do?</h1>
+        <p>Everything runs on your own computer with Ollama — no API keys, no cost.</p>
+        <div class="cards">
+          <button class="card" data-mode="chat" data-prompt="Explain overfitting in machine learning with an example">
+            <b>Chat</b><span>Ask anything. The bot remembers the conversation.</span>
+          </button>
+          <button class="card" data-mode="docs">
+            <b>Ask my documents</b><span>Upload a PDF / Word / text file and ask questions about it.</span>
+          </button>
+          <button class="card" data-mode="agent" data-prompt="What is today's date, and who was Napoleon Bonaparte?">
+            <b>Web Agent</b><span>Uses web search, Wikipedia, clock and calculator.</span>
+          </button>
+          <button class="card" data-mode="email" data-prompt="Ask my manager for 2 days leave next week for my son's school event">
+            <b>Smart actions</b><span>Email writer, translator, sentiment, explain simply.</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <footer class="composer">
+      <div class="modes" id="modes">
+        <button data-mode="chat" class="active">Chat</button>
+        <button data-mode="docs">Ask documents</button>
+        <button data-mode="agent">Web Agent</button>
+        <span class="sep"></span>
+        <button data-mode="email">Email</button>
+        <button data-mode="translate">Translate</button>
+        <button data-mode="explain">Explain</button>
+        <button data-mode="sentiment">Sentiment</button>
+      </div>
+      <div class="input-row">
+        <select id="option" class="hidden"></select>
+        <textarea id="input" rows="1" placeholder="Type a message…  (Enter to send, Shift+Enter for new line)"></textarea>
+        <button id="send" class="send" aria-label="Send">➤</button>
+        <button id="stop" class="send stop hidden" aria-label="Stop">■</button>
+      </div>
+    </footer>
+  </main>
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
